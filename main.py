@@ -8,7 +8,6 @@ import uuid
 import logging
 
 from dotenv import load_dotenv
-import os
 
 load_dotenv(override=True)
 
@@ -45,7 +44,6 @@ def chat(query_input: QueryInput):
 
 
 from fastapi import UploadFile, File, HTTPException
-import os
 import shutil
 
 
@@ -62,7 +60,6 @@ def upload_and_index_document(file: UploadFile = File(...)):
     temp_file_path = f"temp_{file.filename}"
     
     try:
-        # Save the uploaded file to a temporary file
         with open(temp_file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         

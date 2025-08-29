@@ -1,10 +1,10 @@
 from pydantic import BaseModel, Field
 from enum import Enum
 from datetime import datetime
-import uuid  # For generating unique session IDs
+import uuid  # session IDs
 import logging
 
-# Configure logging
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class ModelName(str, Enum):

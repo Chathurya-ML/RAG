@@ -2,9 +2,7 @@ from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# --------------------
-# Database Setup
-# --------------------
+
 DB_URL = "sqlite:///rag.db"   # Change this to use PostgreSQL or MySQL later
 engine = create_engine(DB_URL, echo=False, future=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
@@ -12,9 +10,6 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
 
 
-# --------------------
-# Models
-# --------------------
 class ApplicationLog(Base):
     __tablename__ = "application_logs"
 
@@ -34,9 +29,6 @@ class DocumentStore(Base):
     upload_timestamp = Column(DateTime, default=datetime.utcnow)
 
 
-# --------------------
-# CRUD Operations
-# --------------------
 def init_db():
     Base.metadata.create_all(bind=engine)
 
@@ -97,7 +89,4 @@ def get_all_documents():
         ]
 
 
-# --------------------
-# Initialize Tables
-# --------------------
 init_db()

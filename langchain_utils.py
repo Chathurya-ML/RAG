@@ -11,10 +11,10 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# ✅ retriever
+
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
-# ✅ prompts
+
 contextualize_q_system_prompt = (
     "Given a chat history and the latest user question "
     "which might reference context in the chat history, "
@@ -36,7 +36,7 @@ qa_prompt = ChatPromptTemplate.from_messages([
     ("human", "{input}")
 ])
 
-# ✅ OpenRouter DeepSeek config
+
 OPENROUTER_API_KEY =  os.getenv("OPENROUTER_API_KEY")
 print(f"Using OpenRouter API Key: {OPENROUTER_API_KEY[:8]}...")
 BASE_URL = "https://openrouter.ai/api/v1"
@@ -53,7 +53,7 @@ def get_rag_chain(model="deepseek/deepseek-prover-v2"):
     rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
     return rag_chain
 
-# # ✅ Test function
+# Test function
 # def test_rag_chain():
 #     rag_chain = get_rag_chain()  # OpenRouter model name
     
@@ -76,22 +76,3 @@ def get_rag_chain(model="deepseek/deepseek-prover-v2"):
 # if __name__ == "__main__":
 #     test_rag_chain()
 
-
-
-# from langchain_openai import ChatOpenAI
-# import os
-
-# # For OpenRouter (DeepSeek v2), set API key & base URL
-# os.environ["OPENAI_API_KEY"] = "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"
-# os.environ["OPENAI_BASE_URL"] = "https://openrouter.ai/api/v1"
-
-# # Test LLM functionality
-# def test_llm():
-#     llm = ChatOpenAI(model="deepseek/deepseek-chat")  # Initialize the LLM
-#     response = llm.predict("Hello, can you confirm you're working?")
-#     print("\n--- LLM Response ---")
-#     print(response)
-
-# # Run test
-# if __name__ == "__main__":
-#     test_llm()
