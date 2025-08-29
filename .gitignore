@@ -1,0 +1,48 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+*.log
+
+# --- Virtual Environment ---
+.env
+.venv
+env/
+venv/
+ENV/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb_save
+*.ipynb_checkpoints
+*.ipynb
+
+# --- Cache / Build ---
+.cache/
+dist/
+build/
+*.spec
+
+# --- LangGraph / RAG related ---
+# If you store uploaded docs in /uploads or /data
+uploads/
+data/
+*.db
+
+# --- Checkpoints / Memory ---
+checkpoints/
+*.json
+*.sqlite
+*.pkl
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
